@@ -17,7 +17,14 @@ const RecipeSummary = (recipe) => {
           <div>
             <ul>
               {healthLabels.map((healthLabel, index) => {
-                return <li key={index}>{healthLabel}</li>
+                return (
+                  <span
+                    key={index}
+                    class='inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full'
+                  >
+                    {healthLabel}
+                  </span>
+                )
               })}
             </ul>
           </div>
