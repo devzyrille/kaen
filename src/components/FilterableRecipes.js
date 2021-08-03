@@ -4,23 +4,22 @@ import RecipeSearch from './RecipeSearch'
 import { useFilterRecipes } from './useFilterRecipes'
 
 const FilterableRecipes = () => {
-  const [query, setQuery] = useState('banana')
+  // const [query, setQuery] = useState('banana')
   const [{ recipes, isLoading, isError, requestUri }, handleRequest] =
-    useFilterRecipes(query)
+    useFilterRecipes()
 
-  const handleQuery = (e) => {
-    setQuery(e.target.value)
+  // const handleQuery = (e) => {
+  //   setQuery(e.target.value)
+  // }
+
+  const hay = (searchInput) => {
+    handleRequest(searchInput)
   }
-
-  const hay = () => {
-    handleRequest()
-  }
-
+  //di na siya mag rerender since wala na yung state ng
   return (
     <>
       <RecipeSearch
-        query={query}
-        handleQuery={handleQuery}
+        // handleQuery={handleQuery}
         handleSearch={hay}
       />
       <code className='bg-black text-green-200 m-auto'>{requestUri}</code>

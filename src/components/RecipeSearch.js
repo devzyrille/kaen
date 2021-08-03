@@ -1,4 +1,11 @@
-const RecipeSearch = ({ query, handleQuery, handleSearch }) => {
+import React, { useState} from 'react';
+
+const RecipeSearch = ({ handleSearch }) => {
+  const [query, setQuery] = useState('banana')
+  const handleQuery = (e) => {
+    setQuery(e.target.value)
+  }
+  //Pinasok sa Recipe search yung state na query para ang mag rerender lang is yung search bar
   return (
     <>
       <div className='py-2 px-6 lg:w-2/5 md:w-3/5 sm:w-full relative flex flex-col justify-center place-self-center m-auto'>
@@ -19,7 +26,7 @@ const RecipeSearch = ({ query, handleQuery, handleSearch }) => {
         <div className='w-1/4 absolute top-2 right-3 pr-2'>
           <button
             className='h-10 w-full text-white rounded-lg bg-yellow-500 hover:bg-yellow-600 '
-            onClick={handleSearch}
+            onClick={() => handleSearch(query)}
           >
             Search
           </button>
